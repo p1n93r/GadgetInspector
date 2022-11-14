@@ -1,0 +1,3 @@
+com/google/common/collect/ false
+clojure/core/proxy$clojure/lang/APersistentMap$ff19274a true
+clojure/inspector/proxy$javax/swing/table/AbstractTableModel$ff19274a true

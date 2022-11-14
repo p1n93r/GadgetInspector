@@ -1,0 +1,91 @@
+javax/sql/DataSource getConnection null -1 false # JDBC反序列化sink # JDBC
+java/sql/DriverManager getConnection null -1 false # JDBC反序列化sink # JDBC
+java/lang/reflect/Method invoke (Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; 0 false # Method.invoke,其实需要两个参数都可控才能打 # REFLECT
+java/net/URLClassLoader newInstance ([Ljava/net/URL;Ljava/lang/ClassLoader;)Ljava/net/URLClassLoader; -1 false # 实例化任意对象的sink # REFLECT
+java/lang/ClassLoader loadClass null 1 true # ClassLoader加载任意Class # REFLECT
+org/codehaus/groovy/runtime/InvokerHelper invokeMethod null 1 false # groovy-specific sinks # REFLECT
+groovy/lang/MetaClass invokeMethod null -1 true # groovy-specific sinks # REFLECT
+groovy/lang/MetaClass invokeConstructor null -1 true # groovy-specific sinks # REFLECT
+groovy/lang/MetaClass invokeStaticMethod null -1 true # groovy-specific sinks # REFLECT
+java/io/FileInputStream <init> null 1 false # 文件读取的sink # FILE
+java/io/FileOutputStream <init> null 1 false # 文件上传的sink # FILE
+java/nio/file/Files newInputStream null -1 false # 文件读取的sink # FILE
+java/nio/file/Files newOutputStream null -1 false # 文件上传的sink # FILE
+java/nio/file/Files newBufferedReader null -1 false # 文件读取的sink # FILE
+java/nio/file/Files newBufferedWriter null -1 false # 文件上传的sink # FILE
+java/net/URL openStream ()Ljava/io/InputStream; 0 false # SSRF文件读取的sink # FILE
+java/lang/System exit null -1 false # 系统退出导致DOS # DOS
+java/lang/Shutdown exit null -1 false # 系统退出导致DOS # DOS
+java/lang/Runtime exit null -1 false # 系统退出导致DOS # DOS
+java/lang/Runtime exec null -1 false # Runtime.exec执行 # RCE
+java/lang/ProcessBuilder <init> null 1 false # ProcessBuilder命令执行 # RCE
+java/lang/Class forName (Ljava/lang/String;ZLjava/lang/ClassLoader;)Ljava/lang/Class; -1 false # BCEL sink # BCEL
+javax/xml/parsers/DocumentBuilder parse null -1 false # XXE常见sink # XXE
+org/jdom/input/SAXBuilder build null -1 false # XXE常见sink # XXE
+org/jdom2/input/SAXBuilder build null -1 false # XXE常见sink # XXE
+javax/xml/parsers/SAXParser parse null -1 false # XXE常见sink # XXE
+org/dom4j/io/SAXReader read null -1 false # XXE常见sink # XXE
+javax/xml/transform/sax/SAXTransformerFactory newTransformerHandler null -1 false # XXE常见sink # XXE
+javax/xml/validation/SchemaFactory newSchema null -1 false # XXE常见sink # XXE
+com/sun/org/apache/xalan/internal/xsltc/trax/TransformerImpl transform null -1 false # XXE常见sink # XXE
+javax/xml/transform/Transformer transform null -1 false # XXE常见sink # XXE
+javax/xml/bind/Unmarshaller unmarshal null -1 true # XXE常见sink # XXE
+org/apache/commons/digester3/Digester parse (Ljava/io/Reader;)Ljava/lang/Object; 1 false # XXE # XXE
+javax/xml/validation/Validator validate null -1 false # XXE常见sink # XXE
+org/xml/sax/XMLReader parse null -1 false # XXE常见sink # XXE
+java/rmi/registry/Registry lookup null -1 true # JNDI注入sink # JNDI
+javax/naming/Context lookup null -1 true # JNDI注入sink # JNDI
+javax/validation/ConstraintValidatorContext buildConstraintViolationWithTemplate null -1 true # SSTI常用sink # SSTI
+org/hibernate/validator/internal/engine/constraintvalidation/ConstraintValidatorContextImpl buildConstraintViolationWithTemplate null -1 true # SSTI常用sink # SSTI
+org/springframework/expression/ExpressionParser parseExpression null -1 true # SPEL SSTI # SSTI
+org/springframework/expression/spel/standard/SpelExpressionParser parseExpression null -1 true # SPEL SSTI # SSTI
+org/springframework/expression/ExpressionParser parseRaw null -1 true # SPEL SSTI # SSTI
+org/springframework/expression/spel/standard/SpelExpressionParser parseRaw null -1 true # SPEL SSTI # SSTI
+javax/el/ELProcessor eval null -1 true # EL SSTI # SSTI
+javax/el/ExpressionFactory createValueExpression null 2 true # EL SSTI # SSTI
+groovy/lang/GroovyShell evaluate null -1 false # Groovy SSTI # SSTI
+java/util/regex/Pattern matches (Ljava/lang/String;Ljava/lang/CharSequence;)Z -1 false # 正则匹配dos # DOS
+java/io/ObjectInputStream readObject ()Ljava/lang/Object; 0 false # deserialization # RCE
+java/nio/file/Files write (Ljava/nio/file/Path;[B[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path; 1 false # 文件写入 # FILE
+org/springframework/web/multipart/MultipartFile transferTo (Ljava/io/File;)V 1 false # 文件写入 # FILE
+java/lang/Class getResourceAsStream (Ljava/lang/String;)Ljava/io/InputStream; 1 false # 文件读取 # FILE
+java/io/PrintWriter println (Ljava/lang/String;)V 1 false # XSS # XSS
+java/io/File <init> (Ljava/lang/String;)V 1 false  # 操作文件的sink # FILE
+java/beans/XMLDecoder readObject ()Ljava/lang/Object; 0 false # xmldecoder反序列化 # RCE
+javax/script/ScriptEngine eval (Ljava/lang/String;Ljavax/script/Bindings;)Ljava/lang/Object; 1 false # RCE # RCE
+javax/script/ScriptEngine eval (Ljava/lang/String;)Ljava/lang/Object; 1 false # RCE # RCE
+javax/script/ScriptEngine eval (Ljava/lang/String;Ljavax/script/ScriptContext;)Ljava/lang/Object; 1 false # RCE # RCE
+org/yaml/snakeyaml/Yaml load (Ljava/lang/String;)Ljava/lang/Object; 1 false # RCE # RCE
+java/sql/Statement executeQuery (Ljava/lang/String;)Ljava/sql/ResultSet; 1 false # SQLI # SQLI
+org/springframework/jdbc/core/JdbcTemplate query null 1 false # SQLI # SQLI
+java/sql/Connection prepareStatement (Ljava/lang/String;)Ljava/sql/PreparedStatement; 1 false # SQLI # SQLI
+org/apache/commons/httpclient/methods/GetMethod <init> (Ljava/lang/String;)V 1 false # SSRF # SSRF
+org/apache/commons/httpclient/methods/PostMethod <init> (Ljava/lang/String;)V 1 false # SSRF # SSRF
+org/apache/http/client/fluent/Request Get (Ljava/lang/String;)Lorg/apache/http/client/fluent/Request; 0 false # SSRF # SSRF
+org/apache/http/client/fluent/Request Post (Ljava/lang/String;)Lorg/apache/http/client/fluent/Request; 0 false # SSRF # SSRF
+org/apache/http/client/methods/HttpGet <init> (Ljava/lang/String;)V 1 false # SSRF # SSRF
+java/net/URL <init> (Ljava/lang/String;)V 1 false # SSRF # SSRF
+org/jsoup/Jsoup connect (Ljava/lang/String;)Lorg/jsoup/Connection; 0 false # SSRF # SSRF
+com/squareup/okhttp/Request$Builder url (Ljava/lang/String;)Lcom/squareup/okhttp/Request$Builder; 1 false # SSRF # SSRF
+okhttp3/Request$Builder url (Ljava/lang/String;)Lokhttp3/Request$Builder; 1 false # SSRF # SSRF
+java/net/Socket <init> (Ljava/lang/String;I)V 1 false # SSRF # SSRF
+java/net/URI create (Ljava/lang/String;)Ljava/net/URI; 0 false # SSRF # SSRF
+org/apache/velocity/app/Velocity evaluate (Lorg/apache/velocity/context/Context;Ljava/io/Writer;Ljava/lang/String;Ljava/lang/String;)Z 3 false # VelocitySSTI # SSTI
+org/apache/velocity/app/Velocity evaluate (Lorg/apache/velocity/context/Context;Ljava/io/Writer;Ljava/lang/String;Ljava/io/InputStream;)Z 3 false # VelocitySSTI # SSTI
+org/apache/velocity/app/Velocity evaluate (Lorg/apache/velocity/context/Context;Ljava/io/Writer;Ljava/lang/String;Ljava/io/Reader;)Z 3 false # VelocitySSTI # SSTI
+javax/servlet/http/HttpServletResponse sendRedirect (Ljava/lang/String;)V 1 false # REDIRECT # REDIRECT
+javax/servlet/RequestDispatcher getRequestDispatcher (Ljava/lang/String;)Ljavax/servlet/RequestDispatcher; 1 false # REDIRECT # REDIRECT
+javax/servlet/http/HttpServletRequest getRequestDispatcher (Ljava/lang/String;)Ljavax/servlet/RequestDispatcher; 1 false # REDIRECT # REDIRECT
+org/springframework/web/servlet/ModelAndView <init> (Ljava/lang/String;)V 1 false # REDIRECT # REDIRECT
+com/thoughtworks/xstream/XStream fromXML (Ljava/lang/String;)Ljava/lang/Object; 1 false # XStreamDeserialization # RCE
+
+
+
+
+
+
+
+
+
+
+

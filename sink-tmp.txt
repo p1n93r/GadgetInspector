@@ -1,0 +1,6 @@
+com/landray/kmss/util/FileUtil copy (Ljava/lang/String;Ljava/lang/String;)Z -1 false # landary内部sink # FILE
+com/landray/kmss/util/FileUtil move (Ljava/lang/String;Ljava/lang/String;)V -1 false # landary内部sink # FILE
+com/landray/kmss/util/FileUtil createFile (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V -1 false # landary内部sink # FILE
+com/landray/kmss/util/FileUtil createFile (Ljava/io/InputStream;Ljava/lang/String;)Ljava/io/File; -1 false # landary内部sink # FILE
+com/landray/kmss/util/FileUtil createFile (Ljava/lang/String;Ljava/lang/String;)V -1 false # landary内部sink # FILE
+

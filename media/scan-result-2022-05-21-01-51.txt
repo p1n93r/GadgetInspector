@@ -1,0 +1,202 @@
+[0] org/joychou/controller/SQLI.jdbc_sqli_vul(Ljava/lang/String;)Ljava/lang/String; (1)
+        java/sql/Statement.executeQuery(Ljava/lang/String;)Ljava/sql/ResultSet; (1)
+
+[1] org/joychou/controller/SSRF.httpURLConnection(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/joychou/util/HttpUtils.HttpURLConnection(Ljava/lang/String;)Ljava/lang/String; (0)
+        java/net/URL.<init>(Ljava/lang/String;)V (1)
+
+[2] org/joychou/controller/SSRF.URLConnectionVuln(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/joychou/util/HttpUtils.URLConnection(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; (1)
+        java/net/URL.<init>(Ljava/lang/String;)V (1)
+
+[3] org/joychou/controller/FileUpload.uploadPicture(Lorg/springframework/web/multipart/MultipartFile;)Ljava/lang/String; (1)
+        org/joychou/controller/FileUpload.deleteFile(Ljava/lang/String;)V (1)
+        java/io/File.<init>(Ljava/lang/String;)V (1)
+
+[4] org/joychou/controller/SSRF.okhttp(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/joychou/util/HttpUtils.okhttp(Ljava/lang/String;)Ljava/lang/String; (0)
+        com/squareup/okhttp/Request$Builder.url(Ljava/lang/String;)Lcom/squareup/okhttp/Request$Builder; (1)
+
+[5] org/joychou/controller/Rce.processBuilder(Ljava/lang/String;)Ljava/lang/String; (1)
+        java/lang/ProcessBuilder.<init>([Ljava/lang/String;)V (1)
+
+[6] org/joychou/controller/SQLI.jdbc_sqli_vul(Ljava/lang/String;)Ljava/lang/String; (0)
+        java/sql/DriverManager.getConnection(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection; (1)
+
+[7] org/joychou/controller/PathTraversal.getImage(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/joychou/controller/PathTraversal.getImgBase64(Ljava/lang/String;)Ljava/lang/String; (1)
+        java/io/File.<init>(Ljava/lang/String;)V (1)
+
+[8] org/joychou/controller/CommandInject.codeInjectSec(Ljava/lang/String;)Ljava/lang/String; (1)
+        java/lang/ProcessBuilder.<init>([Ljava/lang/String;)V (1)
+
+[9] org/joychou/controller/SQLI.jdbc_sqli_sec(Ljava/lang/String;)Ljava/lang/String; (0)
+        java/sql/DriverManager.getConnection(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection; (2)
+
+[10] org/joychou/controller/SSRF.IOUtils(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/joychou/util/HttpUtils.IOUtils(Ljava/lang/String;)V (0)
+        java/net/URI.create(Ljava/lang/String;)Ljava/net/URI; (0)
+
+[11] org/joychou/controller/SQLI.jdbc_sqli_sec(Ljava/lang/String;)Ljava/lang/String; (0)
+        java/sql/DriverManager.getConnection(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection; (0)
+
+[12] org/joychou/controller/Rce.secYarm(Ljava/lang/String;)V (1)
+        org/yaml/snakeyaml/Yaml.load(Ljava/lang/String;)Ljava/lang/Object; (1)
+
+[13] org/joychou/controller/XXE.SAXBuilderSec(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        org/jdom2/input/SAXBuilder.build(Lorg/xml/sax/InputSource;)Lorg/jdom2/Document; (1)
+
+[14] org/joychou/controller/SSRF.openStream(Ljava/lang/String;Ljavax/servlet/http/HttpServletResponse;)V (1)
+        org/joychou/util/WebUtils.getFileExtension(Ljava/lang/String;)Ljava/lang/String; (0)
+        java/io/File.<init>(Ljava/lang/String;)V (1)
+
+[15] org/joychou/controller/SSRF.HttpSyncClients(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/joychou/util/HttpUtils.HttpAsyncClients(Ljava/lang/String;)Ljava/lang/String; (0)
+        org/apache/http/client/methods/HttpGet.<init>(Ljava/lang/String;)V (1)
+
+[16] org/joychou/controller/XXE.SAXReaderSec(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        org/dom4j/io/SAXReader.read(Lorg/xml/sax/InputSource;)Lorg/dom4j/Document; (1)
+
+[17] org/joychou/controller/Deserialize.rememberMeVul(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        java/io/ObjectInputStream.readObject()Ljava/lang/Object; (0)
+
+[18] org/joychou/controller/SSTI.velocity(Ljava/lang/String;)V (1)
+        org/apache/velocity/app/Velocity.evaluate(Lorg/apache/velocity/context/Context;Ljava/io/Writer;Ljava/lang/String;Ljava/lang/String;)Z (3)
+
+[19] org/joychou/controller/XStreamRce.parseXml(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        com/thoughtworks/xstream/XStream.fromXML(Ljava/lang/String;)Ljava/lang/Object; (1)
+
+[20] org/joychou/controller/XXE.DigesterSec(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        org/apache/commons/digester3/Digester.parse(Ljava/io/Reader;)Ljava/lang/Object; (1)
+
+[21] org/joychou/controller/URLWhiteList.url_bypass(Ljava/lang/String;)Ljava/lang/String; (1)
+        java/net/URL.<init>(Ljava/lang/String;)V (1)
+
+[22] org/joychou/controller/SSRF.Jsoup(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/joychou/util/HttpUtils.Jsoup(Ljava/lang/String;)Ljava/lang/String; (0)
+        org/jsoup/Jsoup.connect(Ljava/lang/String;)Lorg/jsoup/Connection; (0)
+
+[23] org/joychou/controller/XXE.SAXParserSec(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        javax/xml/parsers/SAXParser.parse(Lorg/xml/sax/InputSource;Lorg/xml/sax/helpers/DefaultHandler;)V (1)
+
+[24] org/joychou/controller/XXE.SAXBuilderVuln(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        org/jdom2/input/SAXBuilder.build(Lorg/xml/sax/InputSource;)Lorg/jdom2/Document; (1)
+
+[25] org/joychou/controller/CommandInject.codeInjectHost(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        java/lang/ProcessBuilder.<init>([Ljava/lang/String;)V (1)
+
+[26] org/joychou/controller/XXE.DigesterVuln(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        org/apache/commons/digester3/Digester.parse(Ljava/io/Reader;)Ljava/lang/Object; (1)
+
+[27] org/joychou/controller/XXE.xmlReaderVuln(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        org/xml/sax/XMLReader.parse(Lorg/xml/sax/InputSource;)V (1)
+
+[28] org/joychou/controller/SSRF.request(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/joychou/util/HttpUtils.request(Ljava/lang/String;)Ljava/lang/String; (0)
+        org/apache/http/client/fluent/Request.Get(Ljava/lang/String;)Lorg/apache/http/client/fluent/Request; (0)
+
+[29] org/joychou/controller/PathTraversal.getImageSec(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/joychou/controller/PathTraversal.getImgBase64(Ljava/lang/String;)Ljava/lang/String; (1)
+        java/io/File.<init>(Ljava/lang/String;)V (1)
+
+[30] org/joychou/controller/SSRF.URLConnectionSec(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/joychou/util/HttpUtils.URLConnection(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; (1)
+        java/net/URL.<init>(Ljava/lang/String;)V (1)
+
+[31] org/joychou/controller/Rce.yarm(Ljava/lang/String;)V (1)
+        org/yaml/snakeyaml/Yaml.load(Ljava/lang/String;)Ljava/lang/Object; (1)
+
+[32] org/joychou/controller/XXE.DocumentBuilderXincludeVuln(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        javax/xml/parsers/DocumentBuilder.parse(Lorg/xml/sax/InputSource;)Lorg/w3c/dom/Document; (1)
+
+[33] org/joychou/controller/URLRedirect.sendRedirect_seccode(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V (1)
+        javax/servlet/http/HttpServletResponse.sendRedirect(Ljava/lang/String;)V (1)
+
+[34] org/joychou/controller/URLRedirect.sendRedirect(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V (0)
+        javax/servlet/http/HttpServletResponse.sendRedirect(Ljava/lang/String;)V (1)
+
+[35] org/joychou/controller/SSRF.openStream(Ljava/lang/String;Ljavax/servlet/http/HttpServletResponse;)V (1)
+        org/joychou/util/WebUtils.getNameWithoutExtension(Ljava/lang/String;)Ljava/lang/String; (0)
+        java/io/File.<init>(Ljava/lang/String;)V (1)
+
+[36] org/joychou/controller/SSRF.ImageIO(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/joychou/util/HttpUtils.imageIO(Ljava/lang/String;)V (0)
+        java/net/URL.<init>(Ljava/lang/String;)V (1)
+
+[37] org/joychou/controller/FileUpload.singleFileUpload(Lorg/springframework/web/multipart/MultipartFile;Lorg/springframework/web/servlet/mvc/support/RedirectAttributes;)Ljava/lang/String; (1)
+        java/nio/file/Files.write(Ljava/nio/file/Path;[B[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path; (1)
+
+[38] org/joychou/controller/XXE.xmlReaderSec(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        org/xml/sax/XMLReader.parse(Lorg/xml/sax/InputSource;)V (1)
+
+[39] org/joychou/controller/Rce.jsEngine(Ljava/lang/String;)V (1)
+        javax/script/ScriptEngine.eval(Ljava/lang/String;Ljavax/script/Bindings;)Ljava/lang/Object; (1)
+
+[40] org/joychou/controller/XXE.XMLReaderVuln(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        org/xml/sax/XMLReader.parse(Lorg/xml/sax/InputSource;)V (1)
+
+[41] org/joychou/controller/SQLI.jdbc_sqli_sec(Ljava/lang/String;)Ljava/lang/String; (1)
+        java/sql/Connection.prepareStatement(Ljava/lang/String;)Ljava/sql/PreparedStatement; (1)
+
+[42] org/joychou/controller/SSRF.openStream(Ljava/lang/String;Ljavax/servlet/http/HttpServletResponse;)V (1)
+        java/net/URL.openStream()Ljava/io/InputStream; (0)
+
+[43] org/joychou/controller/SSRF.commonsHttpClient(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/joychou/util/HttpUtils.commonHttpClient(Ljava/lang/String;)Ljava/lang/String; (0)
+        org/apache/commons/httpclient/methods/GetMethod.<init>(Ljava/lang/String;)V (1)
+
+[44] org/joychou/controller/SQLI.jdbc_sqli_sec(Ljava/lang/String;)Ljava/lang/String; (0)
+        java/sql/DriverManager.getConnection(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection; (1)
+
+[45] org/joychou/controller/Rce.groovyshell(Ljava/lang/String;)V (1)
+        groovy/lang/GroovyShell.evaluate(Ljava/lang/String;)Ljava/lang/Object; (1)
+
+[46] org/joychou/controller/XXE.XMLReaderSec(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        org/xml/sax/XMLReader.parse(Lorg/xml/sax/InputSource;)V (1)
+
+[47] org/joychou/controller/XXE.SAXReaderVuln(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        org/dom4j/io/SAXReader.read(Lorg/xml/sax/InputSource;)Lorg/dom4j/Document; (1)
+
+[48] org/joychou/controller/XXE.DocumentBuilderVuln02(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        javax/xml/parsers/DocumentBuilder.parse(Lorg/xml/sax/InputSource;)Lorg/w3c/dom/Document; (1)
+
+[49] org/joychou/controller/SSRF.HttpClient(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/joychou/util/HttpUtils.httpClient(Ljava/lang/String;)Ljava/lang/String; (0)
+        org/apache/http/client/methods/HttpGet.<init>(Ljava/lang/String;)V (1)
+
+[50] org/joychou/controller/SQLI.jdbc_sqli_vul(Ljava/lang/String;)Ljava/lang/String; (0)
+        java/sql/DriverManager.getConnection(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection; (0)
+
+[51] org/joychou/controller/XXE.SAXParserVuln(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        javax/xml/parsers/SAXParser.parse(Lorg/xml/sax/InputSource;Lorg/xml/sax/helpers/DefaultHandler;)V (1)
+
+[52] org/joychou/controller/FileUpload.uploadPicture(Lorg/springframework/web/multipart/MultipartFile;)Ljava/lang/String; (1)
+        java/nio/file/Files.write(Ljava/nio/file/Path;[B[Ljava/nio/file/OpenOption;)Ljava/nio/file/Path; (1)
+
+[53] org/joychou/controller/XXE.DocumentBuilderXincludeSec(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        javax/xml/parsers/DocumentBuilder.parse(Lorg/xml/sax/InputSource;)Lorg/w3c/dom/Document; (1)
+
+[54] org/joychou/controller/SpEL.rce(Ljava/lang/String;)Ljava/lang/String; (1)
+        org/springframework/expression/common/TemplateAwareExpressionParser.parseExpression(Ljava/lang/String;)Lorg/springframework/expression/Expression; (1)
+
+[55] org/joychou/controller/SSRF.openStream(Ljava/lang/String;Ljavax/servlet/http/HttpServletResponse;)V (1)
+        java/net/URL.<init>(Ljava/lang/String;)V (1)
+
+[56] org/joychou/controller/Rce.CommandExec(Ljava/lang/String;)Ljava/lang/String; (1)
+        java/lang/Runtime.exec(Ljava/lang/String;)Ljava/lang/Process; (1)
+
+[57] org/joychou/controller/XXE.DocumentBuilderVuln01(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        javax/xml/parsers/DocumentBuilder.parse(Lorg/xml/sax/InputSource;)Lorg/w3c/dom/Document; (1)
+
+[58] org/joychou/controller/URLRedirect.forward(Ljavax/servlet/http/HttpServletRequest;Ljavax/servlet/http/HttpServletResponse;)V (0)
+        javax/servlet/http/HttpServletRequest.getRequestDispatcher(Ljava/lang/String;)Ljavax/servlet/RequestDispatcher; (1)
+
+[59] org/joychou/controller/SQLI.jdbc_sqli_vul(Ljava/lang/String;)Ljava/lang/String; (0)
+        java/sql/DriverManager.getConnection(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection; (2)
+
+[60] org/joychou/controller/CommandInject.codeInject(Ljava/lang/String;)Ljava/lang/String; (1)
+        java/lang/ProcessBuilder.<init>([Ljava/lang/String;)V (1)
+
+[61] org/joychou/controller/XXE.DocumentBuilderSec(Ljavax/servlet/http/HttpServletRequest;)Ljava/lang/String; (1)
+        javax/xml/parsers/DocumentBuilder.parse(Lorg/xml/sax/InputSource;)Lorg/w3c/dom/Document; (1)
+
