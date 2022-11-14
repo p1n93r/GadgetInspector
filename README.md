@@ -1,3 +1,6 @@
+## 一些讲解
+......
+
 ## GadgetInspector
 我仅仅修改了原版GI的代码结构（利于我阅读以及理解），添加了一些source和sink配置；
 
@@ -19,35 +22,6 @@ java -jar GadgetInspector-1.0-SNAPSHOT.jar --is-springboot false --package com.l
 ```
 
 ```
-[*] start code audit scan...
-                            GadgetInspector                           
-                             +----------+                         
-                             |  Source  |                         
-                             +----------+                         
-                             .-'  |  `-._                         
-                          .-'     |      `-._                     
-                       .-'        |          `-._                 
-                    .-'           |              `-.              
-               +---'-------+     +-----+-----+     +-`--`------+  
-               | Call-site |     | Call-site |     | Call-site |  
-               +-----------+     +-----------+     +-----------+  
-              _.-' | `.                       .-'    \           
-          _.-'     |   `.                  .-'        \          
-      _.-'         |     `.             .-'            \         
-+----'-------+-----+-----+--`----+ +----'------+    +----`------+ 
-|  ........  | Call-site |  ...  | | Call-site |    | Call-site | 
-+------------+-----------+-------+ +-----------+    +-----------+ 
-                                _.-'.'/ \             | \       
-                            _.-'  .' /   \            |  \      
-                        _.-'   .-'  /     \           |   \     
-                    _.-'    .-'    /       \          |    \    
-                _.-'     .-'      /         \         |     \   
-            _.-'      .-'        /           \        |      \  
-      .----'---.-----'---.------'-----.-------`--.----+---.---`--.
-      |  Sink  |   Sink  |    Sink    |   Sink   |  Sink  | Sink |
-      `--------^---------^------------^----------^--------^------'
-    forked from https://github.com/JackOfMostTrades/gadgetinspector                
-
 > target file: 
 > package name: com.landray
 > class path: /Volumes/Seagate/classes
@@ -108,4 +82,4 @@ java -jar GadgetInspector-1.0-SNAPSHOT.jar --is-springboot true --package org.jo
 
 ## 目前的局限性
 - 因为是使用ASM模拟JVM栈帧，所以只能扫已编译好的项目（其实也是它的优势）；
-- 对于没有返回值的 methodCall ，是不支持污点传播的，例如 `StringBuilder content = new StringBuilder(); content.append(new String(b, 0, lens)); Runtime.getRuntime().exec(content.toString())` 这种情况污点传播会断开，因为 `content.append()` 方法没有返回值；
+- 对于没有将返回值赋值给变量的 methodCall ，是不支持污点传播的，例如 `StringBuilder content = new StringBuilder(); content.append(new String(b, 0, lens)); Runtime.getRuntime().exec(content.toString())` 这种情况污点传播会断开，因为 `content.append()` 方法没有把返回值赋值给新的变量（当然，就算赋值，也只能沿着新变量传播污点）；

@@ -744,7 +744,8 @@ public class TaintTrackingMethodVisitor<T> extends MethodVisitor {
     }
 
     @Override
-    public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {final MethodReference.Handle methodHandle = new MethodReference.Handle(new ClassReference.Handle(owner), name, desc);
+    public void visitMethodInsn(int opcode, String owner, String name, String desc, boolean itf) {
+        final MethodReference.Handle methodHandle = new MethodReference.Handle(new ClassReference.Handle(owner), name, desc);
         // 注意，这个是被调用方法的形参列表，外加一个 "被调用方法的实例对象的Type"，且位于第0个元素
         Type[] argTypes = Type.getArgumentTypes(desc);
         if (opcode != Opcodes.INVOKESTATIC) {
@@ -825,7 +826,7 @@ public class TaintTrackingMethodVisitor<T> extends MethodVisitor {
                     Set<ClassReference.Handle> parents = inheritanceMap.getSuperClasses(new ClassReference.Handle(argTypes[0].getClassName().replace('.', '/')));
                     if (parents != null && (parents.contains(new ClassReference.Handle("java/util/Collection")) ||
                             parents.contains(new ClassReference.Handle("java/util/Map")))) {
-                        // 如果该类为集合类，call-site的所有参数都是污点
+                        // 如果该类为集合类，callee的所有形参都是污点，把污点标记加入到this中
                         for (int i = 1; i < argTaint.size(); i++) {
                             argTaint.get(0).addAll(argTaint.get(i));
                         }

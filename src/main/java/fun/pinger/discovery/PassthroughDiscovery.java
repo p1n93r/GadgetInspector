@@ -52,8 +52,7 @@ public class PassthroughDiscovery {
         List<MethodReference.Handle> sortedMethods = topologicallySortMethodCalls();
 
         // 进行所有函数的过程间污点传播分析
-        passthroughDataFlow = calculatePassthroughDataFlow(classResourceByName, classMap, inheritanceMap, sortedMethods,
-                config.getSerializableDecider(methodMap, inheritanceMap));
+        passthroughDataFlow = calculatePassthroughDataFlow(classResourceByName, classMap, inheritanceMap, sortedMethods, config.getSerializableDecider(methodMap, inheritanceMap));
     }
 
     /**
